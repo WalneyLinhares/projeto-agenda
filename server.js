@@ -21,7 +21,7 @@ const flash = require('connect-flash');
 const helmet = require('helmet');
 const csrf = require('csurf');
 
-app.set('trust proxy', process.env.NODE_ENV === 'production');
+app.set('trust proxy', process.env.NODE_ENV === 'production' ? 1 : false);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
