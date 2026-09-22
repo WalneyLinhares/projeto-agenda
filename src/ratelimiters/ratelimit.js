@@ -2,7 +2,7 @@ const rateLimit = require('express-rate-limit');
 
 const createLimiter = (redirectPath, options = {}) => {
     return rateLimit({
-        windowMs: options.windowMs || 60 * 60 * 1000, // 1 HORA
+        windowMs: options.windowMs || 10 * 60 * 1000, // 10 MINUTOS
         max: options.max || 5,
         standardHeaders: true,
         legacyHeaders: false,
@@ -21,4 +21,3 @@ exports.rateLimitContato = createLimiter('/contato', {
 
 exports.rateLimitRegister = createLimiter('/cadastro');
 exports.rateLimitLogin = createLimiter('/login');
-exports.rateLimitContato = createLimiter('/contato');
