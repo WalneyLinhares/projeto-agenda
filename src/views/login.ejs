@@ -1,0 +1,50 @@
+<%- include("includes/head") %>
+<%- include("includes/nav") %>
+
+<div class="container d-flex flex-column align-items-center justify-content-center" style="min-height: calc(100vh - 56px);">
+
+    <div class="row w-100 justify-content-center py-4">
+
+        <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
+
+            <%- include('includes/messages') %>
+
+            <div class="card shadow border-0 p-3 mt-2">
+                <div class="card-body">
+                    <h2 class="card-title text-center text-dark fw-bold mb-4">Entrar</h2>
+
+                    <form class="form-login" action="/login" method="POST" id="form-login">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                        <div class="mb-3 text-start">
+                            <label for="login-email" class="form-label fw-semibold">E-mail</label>
+                            <input type="email" class="form-control" name="email" id="login-email" placeholder="seu@email.com" autocomplete="username">
+                            <div class="invalid-feedback" id="erro-email"></div>
+                        </div>
+
+                        <div class="mb-3 text-start">
+                            <label for="login-senha" class="form-label fw-semibold">Senha</label>
+                            <input type="password" class="form-control" name="password" id="login-senha" placeholder="Sua senha" autocomplete="current-password">
+                            <div class="invalid-feedback" id="erro-senha"></div>
+                        </div>
+
+                        <div class="mb-4 form-check text-start">
+                            <input type="checkbox" class="form-check-input" name="rememberMe" id="login-lembrar">
+                            <label class="form-check-label text-muted" for="login-lembrar">Manter conectado</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark w-100 fw-bold py-2 mb-3">Acessar</button>
+                    </form>
+
+                    <div class="text-center">
+                        <span class="text-muted">Não tem conta?</span>
+                        <a href="/cadastro" class="text-dark fw-semibold text-decoration-none">Cadastre-se</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<%- include("includes/footer") %>

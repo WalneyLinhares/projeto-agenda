@@ -1,0 +1,60 @@
+<%- include("includes/head") %>
+<%- include("includes/nav") %>
+
+<!-- Conteúdo da Página -->
+<div class="container my-5 text-center">
+    <div class="row">
+        <div class="col--lg-2"></div>
+        <div class="col--lg-8">
+            <h1 class="display-1 text-center fs-1 fw-medium">Agenda</h1>
+            <p class="text-center lead">Seus contatos estão abaixo</p>
+
+            <%- include('includes/messages') %>
+
+            <div class="table-responsive my-4">
+
+                <% if (!user) { %>
+                    <div>
+                        <h3>Você precisa fazer login para ver seus contatos.</h3>
+                    </div>
+                <% } else if (contatos.length === 0) { %>
+                    <div>
+                        <h3>Você não tem nenhum contato cadastrado.</h3>
+                    </div>
+                <% } else { %>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Sobrenome</th>
+                            <th scope="col">Número</th>
+                            <th scope="col">Contato</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <% contatos.forEach(contato => { %>
+                            <tr>
+                                <td class="align-content-center"><%= contato.name %></td>
+                                <td class="align-content-center"><%= contato.surname %></td>
+                                <td class="align-content-center"><%= contato.telephone %></td>
+                                <td class="align-content-center"><%= contato.email %></td>
+                                <td>
+                                    <div class="d-flex gap-2 justify-content-center">
+                                        <a class="btn btn-primary" href="/contato/<%= contato._id %>" role="button">Editar</a>
+                                        <a class="btn btn-danger" href="/contato/delete/<%= contato._id %>" role="button">Excluir</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% }) %>
+                        </tbody>
+                    </table>
+                <%} %>
+            </div>
+        </div>
+        <div class="col--lg-2"></div>
+    </div>
+</div>
+
+<%- include("includes/footer") %>

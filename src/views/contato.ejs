@@ -1,0 +1,61 @@
+<%- include("includes/head") %>
+<%- include("includes/nav") %>
+
+<div class="container d-flex align-items-center justify-content-center" style="min-height: calc(100vh - 56px);">
+    <div class="row w-100 justify-content-center py-4">
+
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 container d-flex flex-column align-items-center justify-content-center">
+
+            <%- include('includes/messages') %>
+
+            <% if (contato._id) { %>
+
+            <% } %>
+
+            <div class="card shadow border-0 p-3 w-100">
+                <div class="card-body">
+                    <h2 class="card-title text-center text-dark fw-bold mb-4">Contato</h2>
+                    <p class="text-center lead">Crie ou edite seus contatos abaixo</p>
+
+                    <% if (contato._id) { %>
+                        <form class="form-contato-edit" action="/contato/<%= contato._id %>" method="POST" id="form-contato">
+                    <% } else { %>
+                        <form class="form-contato" action="/contato" method="POST" id="form-contato">
+                    <% } %>
+
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                        <div class="mb-3 text-start">
+                            <label for="contato-nome" class="form-label fw-semibold">Nome</label>
+                            <input type="text" class="form-control" name="name" id="contato-nome" value="<%= contato.name %>">
+                            <div class="invalid-feedback" id="erro-nome"></div>
+                        </div>
+
+                        <div class="mb-3 text-start">
+                            <label for="contato-sobrenome" class="form-label fw-semibold">Sobrenome</label>
+                            <input type="text" class="form-control" name="surname" id="contato-sobrenome" value="<%= contato.surname %>">
+                            <div class="invalid-feedback" id="erro-sobrenome"></div>
+                        </div>
+
+                        <div class="mb-3 text-start">
+                            <label for="contato-email" class="form-label fw-semibold">E-mail</label>
+                            <input type="email" class="form-control" name="email" id="contato-email" value="<%= contato.email %>">
+                            <div class="invalid-feedback" id="erro-email"></div>
+                        </div>
+
+                        <div class="mb-3 text-start">
+                            <label for="contato-telefone" class="form-label fw-semibold">Telefone</label>
+                            <input type="tel" class="form-control" name="telephone" id="contato-telefone" value="<%= contato.telephone %>">
+                            <div class="invalid-feedback" id="erro-telefone"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark w-100 fw-bold py-2 mb-3">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<%- include("includes/footer") %>

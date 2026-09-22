@@ -1,0 +1,26 @@
+<%- include("includes/head") %>
+<%- include("includes/nav") %>
+
+<div class="container d-flex flex-column align-items-center justify-content-center" style="min-height: calc(100vh - 56px);">
+
+    <div class="row w-100 justify-content-center py-4">
+
+        <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
+
+            <%- include('includes/messages') %>
+
+            <div>
+                <h1 class="text-center mb-5">Olá <%= user.email %> </h1>
+                <p class="text-center lead">Você precisa <a class="link-opacity-50-hover" href="/logout">sair</a> para criar outra conta</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("includes/footer") %>
+
+
+
+
+
+

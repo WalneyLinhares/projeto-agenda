@@ -1,0 +1,66 @@
+<%- include("includes/head") %>
+<%- include("includes/nav") %>
+
+<div class="container d-flex flex-column align-items-center justify-content-center" style="min-height: calc(100vh - 56px);">
+
+    <div class="row w-100 justify-content-center py-4">
+
+        <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
+
+            <%- include('includes/messages') %>
+
+            <div class="card shadow border-0 p-3 mt-2">
+                <div class="card-body">
+                    <h2 class="card-title text-center text-dark fw-bold mb-4">Criar Conta</h2>
+
+                    <form class="form-cadastro" action="/cadastro" method="POST" id="form-cadastro">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                        <div class="mb-3 text-start">
+                            <label for="cadastro-nome" class="form-label fw-semibold">Nome Completo</label>
+                            <input type="text" class="form-control" name="name" id="cadastro-nome" placeholder="Seu nome completo">
+                            <div class="invalid-feedback" id="erro-nome"></div>
+                        </div>
+
+                        <div class="mb-3 text-start">
+                            <label for="cadastro-email" class="form-label fw-semibold">E-mail</label>
+                            <input type="email" class="form-control" name="email" id="cadastro-email" placeholder="seu@email.com" autocomplete="username">
+                            <div class="invalid-feedback" id="erro-email"></div>
+                        </div>
+
+                        <div class="mb-3 text-start">
+                            <label for="cadastro-senha" class="form-label fw-semibold">Senha</label>
+                            <input type="password" class="form-control" name="password" id="cadastro-senha" placeholder="Crie uma senha forte" autocomplete="new-password">
+
+                            <div class="form-text mt-2" id="requisitos-senha">
+                                <div id="req-tamanho" class="text-muted">• Mínimo de 6 e máximo de 30 caracteres</div>
+                                <div id="req-maiuscula" class="text-muted">• Pelo menos uma letra maiúscula</div>
+                                <div id="req-numero" class="text-muted">• Pelo menos um número</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="cadastro-terms" name="terms">
+
+                            <label class="form-check-label" for="cadastro-terms">
+                                Eu li e aceito os <a href="#" class="text-decoration-none">Termos de Uso</a>.
+                            </label>
+
+                            <div class="invalid-feedback start" id="erro-terms"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark w-100 fw-bold py-2 mb-3">Cadastrar</button>
+                    </form>
+
+                    <div class="text-center">
+                        <span class="text-muted">Já tem uma conta?</span>
+                        <a href="/login" class="text-dark fw-semibold text-decoration-none">Fazer Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<%- include("includes/footer") %>
