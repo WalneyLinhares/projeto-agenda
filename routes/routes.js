@@ -5,7 +5,7 @@ const loginController = require("../src/controllers/loginControler");
 const registerController = require("../src/controllers/cadastroControler");
 const contatoController = require("../src/controllers/contatoControler");
 const { loginRequiredMiddleware } = require("../src/middlewares/middleware");
-const { rateLimitRegister, rateLimitLogin,rateLimitContato } = require("../src/ratelimiters/rateLimit");
+const { rateLimitRegister, rateLimitLogin, rateLimitContato } = require("../src/ratelimiters/ratelimit");
 
 // Rotas da Home
 router.get('/', homeController.index);
