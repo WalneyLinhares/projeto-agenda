@@ -60,9 +60,3 @@ projeto-agenda/
    ```
 
 5. Acesse `http://localhost:3000` no navegador
-
-## Autor
-
-Walney Linhares
-- LinkedIn: https://www.linkedin.com/in/walney-linhares-5541b9381
-- GitHub: https://github.com/WalneyLinhares
